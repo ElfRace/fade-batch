@@ -18,6 +18,18 @@ public class TimeHolder extends AbstractTimeHolder {
 		this.field = field;
 	}
 
+	public String getTime(boolean standard) {
+		StringBuilder sb = new StringBuilder();
+		if (field >= Calendar.YEAR)
+			sb.append("yyyy");
+		if (field >= Calendar.MONTH) {
+			if (standard)
+				sb.append('-');
+			sb.append("MM");
+		}
+		return getTime(sb.toString());
+	}
+
 	@Override
 	protected final Date findStartTime(Date time) {
 		return cleanStartTimeIfNeccesary(time, field);
