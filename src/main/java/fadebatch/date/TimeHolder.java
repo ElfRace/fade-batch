@@ -3,6 +3,8 @@ package fadebatch.date;
 import java.util.Calendar;
 import java.util.Date;
 
+import fadebatch.date.enums.CalendarField;
+
 /**
  * 最基本的时间类，没有日切的概念<br>
  * 开始时间=结束时间=时间
@@ -19,15 +21,8 @@ public class TimeHolder extends AbstractTimeHolder {
 	}
 
 	public String getTime(boolean standard) {
-		StringBuilder sb = new StringBuilder();
-		if (field >= Calendar.YEAR)
-			sb.append("yyyy");
-		if (field >= Calendar.MONTH) {
-			if (standard)
-				sb.append('-');
-			sb.append("MM");
-		}
-		return getTime(sb.toString());
+		String pattern = CalendarField.getPatternString(field, standard);
+		return getTime(pattern);
 	}
 
 	@Override

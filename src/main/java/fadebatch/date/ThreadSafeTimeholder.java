@@ -2,6 +2,7 @@ package fadebatch.date;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 import fadebatch.date.interfaces.BatchDate;
 import fadebatch.date.interfaces.Cleanable;
@@ -19,11 +20,11 @@ public abstract class ThreadSafeTimeholder implements BatchDate, Cleanable, Seri
 		}
 	};
 
-	protected java.util.Date getMainTime() {
-		return (java.util.Date) mainTime.get().clone();
+	protected Date getMainTime() {
+		return (Date) mainTime.get().clone();
 	}
 
-	protected void updateMainTime(java.util.Date time) {
+	protected void updateMainTime(Date time) {
 		mainTime.set(new FloorMilliDate(time));
 	}
 

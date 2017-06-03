@@ -30,7 +30,7 @@ public abstract class AbstractTimeHolder extends ThreadSafeTimeholder {
 		return new SimpleDateFormat(pattern).format(getTime());
 	}
 
-	public void setTime(java.util.Date date) {
+	public void setTime(Date date) {
 		updateMainTime(date);
 	}
 

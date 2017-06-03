@@ -83,4 +83,10 @@ public class TimeHolderTest {
 		        Calendar.getInstance().get(Calendar.DATE));
 	}
 
+	@Test
+	public void testGetTime() {
+		TimeHolder holder = new BatchCutoverHolder(-1, Calendar.MILLISECOND);
+		String time = holder.getTime(true);
+		System.out.println(time);
+	}
 }
