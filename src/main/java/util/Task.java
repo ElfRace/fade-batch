@@ -1,6 +1,6 @@
 package util;
 
-public interface Task {
+public interface Task<P> {
 	/**
 	 * 轮询时需要执行的操作
 	 * 
@@ -8,10 +8,10 @@ public interface Task {
 	 *         true:需要<br>
 	 *         false:不需要
 	 */
-	boolean task();
+	boolean task(P param);
 
 	/**
 	 * 当最后一次轮询仍然失败时执行的回调方法
 	 */
-	void failureCallBack();
+	void failureCallBack(P param);
 }
